@@ -1,800 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - Movie to Watch</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Privacy Policy for Movie to Watch - Discover movies and TV series, watch trailers, and track your watchlist. Learn how we handle your data, local storage, and integration with third-party services.">
-  <meta name="robots" content="index, follow">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
-  <style>
-    /* CSS variables for consistent design tokens */
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Fmovies</title>
+<meta name="description" content="Privacy Policy for the Fmovies Android application.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --accent: #d32f2f;
+    --border: #e4e4e4;
+    --card: #fafafa;
+  }
+  @media (prefers-color-scheme: dark) {
     :root {
-      --bg-color: #080B11;
-      --card-bg: rgba(17, 24, 39, 0.6);
-      --card-border: rgba(255, 255, 255, 0.06);
-      --primary-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
-      --accent-glow: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15), transparent 60%);
-      --text-main: #E2E8F0;
-      --text-muted: #94A3B8;
-      --text-heading: #F8FAFC;
-      --accent-color: #A78BFA;
-      --success-color: #34D399;
-      --shadow-indigo: rgba(99, 102, 241, 0.2);
-      --transition-speed: 0.3s;
+      --bg: #121212;
+      --fg: #ececec;
+      --muted: #a0a0a0;
+      --accent: #ff5252;
+      --border: #2c2c2c;
+      --card: #1c1c1c;
     }
-
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.7;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Background Ambient Glows */
-    body::before,
-    body::after {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      z-index: -1;
-      pointer-events: none;
-      filter: blur(140px);
-    }
-
-    body::before {
-      top: -100px;
-      left: -200px;
-      background: rgba(99, 102, 241, 0.12);
-    }
-
-    body::after {
-      bottom: 200px;
-      right: -200px;
-      background: rgba(139, 92, 246, 0.1);
-    }
-
-    /* Container layout */
-    .app-container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    @media (max-width: 968px) {
-      .app-container {
-        padding: 2rem 1.2rem;
-        gap: 1.5rem;
-      }
-    }
-
-    /* Brand Header Section */
-    .brand-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      background: var(--primary-gradient);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px -6px var(--shadow-indigo);
-    }
-
-    .brand-logo svg {
-      width: 22px;
-      height: 22px;
-      fill: #FFF;
-    }
-
-    .brand-name {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 1.6rem;
-      background: linear-gradient(to right, #FFF, #C084FC);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: -0.5px;
-    }
-
-    /* Section Numbering Style */
-    .section-number {
-      color: var(--accent-color);
-      margin-right: 0.5rem;
-    }
-
-    /* Main Content Area */
-    .content-area {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    /* Hero section */
-    .hero-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 3rem;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 150px;
-      height: 150px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-badge {
-      align-self: flex-start;
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      color: var(--accent-color);
-      padding: 0.35rem 0.85rem;
-      border-radius: 100px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .main-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--text-heading);
-      letter-spacing: -0.5px;
-    }
-
-    .meta-info {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .meta-icon {
-      color: var(--accent-color);
-    }
-
-    /* Policy Sections */
-    .policy-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 2.5rem;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
-      transition: border-color var(--transition-speed), box-shadow var(--transition-speed), transform var(--transition-speed);
-    }
-
-    .policy-card:hover {
-      border-color: rgba(99, 102, 241, 0.3);
-      box-shadow: 0 15px 40px -12px rgba(99, 102, 241, 0.15);
-      transform: translateY(-2px);
-    }
-
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: var(--text-heading);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .section-icon {
-      color: var(--accent-color);
-      width: 24px;
-      height: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    p {
-      margin-bottom: 1rem;
-      font-weight: 400;
-    }
-
-    p strong {
-      color: var(--text-heading);
-      font-weight: 600;
-    }
-
-    ul,
-    ol {
-      margin-bottom: 1.5rem;
-      padding-left: 1.5rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    code {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 6px;
-      padding: 0.1rem 0.4rem;
-      font-size: 0.9em;
-      color: var(--accent-color);
-    }
-
-    /* Grid for Data & Service Integrations */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .service-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all var(--transition-speed);
-    }
-
-    .service-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .service-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .service-name {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-heading);
-    }
-
-    .service-badge {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-      font-weight: 600;
-    }
-
-    .badge-ads {
-      background: rgba(239, 68, 68, 0.15);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #F87171;
-    }
-
-    .badge-analytics {
-      background: rgba(59, 130, 246, 0.15);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      color: #60A5FA;
-    }
-
-    .badge-content {
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34D399;
-    }
-
-    .service-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      line-height: 1.5;
-    }
-
-    .service-link {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-      transition: opacity var(--transition-speed);
-    }
-
-    .service-link:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    /* Highlight box / Alerts */
-    .info-box {
-      background: rgba(99, 102, 241, 0.08);
-      border-left: 4px solid #6366F1;
-      padding: 1.25rem 1.5rem;
-      border-radius: 0 12px 12px 0;
-      margin: 1.5rem 0;
-    }
-
-    .info-box-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      color: var(--text-heading);
-      margin-bottom: 0.5rem;
-    }
-
-    .info-box p {
-      margin-bottom: 0;
-      font-size: 0.95rem;
-      color: var(--text-main);
-    }
-
-    /* Contact box styling */
-    .contact-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-
-    .contact-card {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 1.25rem 1.5rem;
-      border-radius: 16px;
-      transition: all var(--transition-speed);
-    }
-
-    .contact-card:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: var(--accent-color);
-    }
-
-    .contact-icon-wrapper {
-      width: 48px;
-      height: 48px;
-      background: rgba(139, 92, 246, 0.15);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-color);
-      flex-shrink: 0;
-    }
-
-    .contact-details {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .contact-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .contact-value {
-      font-weight: 600;
-      color: var(--text-heading);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-    }
-
-    .contact-value:hover {
-      color: var(--accent-color);
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 4rem 0 0 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      margin-top: 3rem;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    footer p {
-      margin-bottom: 0.5rem;
-    }
-
-    footer a {
-      color: var(--accent-color);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-color);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(99, 102, 241, 0.4);
-    }
-  </style>
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0 20px 64px;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  main { max-width: 760px; margin: 0 auto; }
+  header {
+    padding: 48px 0 24px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  h1 { font-size: 1.9rem; margin: 0 0 8px; letter-spacing: -0.02em; }
+  .updated { color: var(--muted); font-size: 0.9rem; margin: 0; }
+  h2 {
+    font-size: 1.2rem;
+    margin: 40px 0 12px;
+    padding-top: 8px;
+    letter-spacing: -0.01em;
+  }
+  h3 { font-size: 1rem; margin: 24px 0 8px; color: var(--fg); }
+  p, li { color: var(--fg); }
+  ul { padding-left: 22px; }
+  li { margin: 6px 0; }
+  a { color: var(--accent); text-decoration: none; word-break: break-word; }
+  a:hover { text-decoration: underline; }
+  code {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.88em;
+  }
+  .service {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .service strong { display: block; margin-bottom: 4px; }
+  .service p { margin: 0 0 6px; color: var(--muted); font-size: 0.94rem; }
+  .contact {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 12px;
+  }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.86rem;
+  }
+</style>
 </head>
-
 <body>
+<main>
 
-  <div class="app-container">
+<header>
+  <h1>Privacy Policy — Fmovies</h1>
+  <p class="updated">Last updated: September 4, 2026</p>
+</header>
 
-    <!-- Brand Header -->
-    <header class="brand-header">
-      <div class="brand-logo">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4zm2 14H4V10h16v8z" />
-        </svg>
-      </div>
-      <span class="brand-name">Movie to Watch</span>
-    </header>
+<h2>1. Introduction</h2>
+<p>Fmovies (&quot;we&quot;, &quot;our&quot;, or &quot;the app&quot;) is a movie discovery application. This policy explains what data the app collects, how it is used, who it is shared with, and the choices available to you.</p>
+<p>By using the app you agree to this policy.</p>
 
-    <!-- Main Content Area -->
-    <main class="content-area">
+<h2>2. Information We Collect</h2>
 
-      <!-- Hero/Header Card -->
-      <section class="hero-card">
-        <div class="hero-badge">Compliance Document</div>
-        <h1 class="main-title">Privacy Policy</h1>
-        <p>Your privacy and trust are important to us. This privacy policy describes how Movie to Watch collects,
-          processes, and protects your information.</p>
+<h3>2.1 Data Stored On Your Device</h3>
+<ul>
+  <li><strong>Watchlist, favorites, custom lists, reviews and ratings</strong>: stored locally using Hive. Never transmitted to our servers.</li>
+  <li><strong>Settings and preferences</strong>: theme choice, onboarding state, and reward state, stored locally using SharedPreferences.</li>
+  <li><strong>Release reminders</strong>: scheduled locally on your device.</li>
+</ul>
 
-        <div class="meta-info">
-          <div class="meta-item">
-            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="16" y1="2" x2="16" y2="6"></line>
-              <line x1="8" y1="2" x2="8" y2="6"></line>
-              <line x1="3" y1="10" x2="21" y2="10"></line>
-            </svg>
-            <span><strong>Last Updated:</strong> August 26, 2026</span>
-          </div>
-          <div class="meta-item">
-            <svg class="meta-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <path
-                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
-              </path>
-            </svg>
-            <span><strong>Scope:</strong> Movie to Watch Mobile Application</span>
-          </div>
-        </div>
-      </section>
+<h3>2.2 Data Collected Automatically</h3>
+<p>The app uses Google Firebase Analytics and Google AdMob, which collect data automatically, including:</p>
+<ul>
+  <li><strong>Device and app information</strong>: device model, operating system version, app version, language, and country/region.</li>
+  <li><strong>Advertising identifier</strong>: your Android Advertising ID (AAID), used for ad delivery and measurement.</li>
+  <li><strong>Usage events</strong>: screens viewed, searches performed, movies opened, watchlist changes, and trailer plays.</li>
+  <li><strong>Ad interaction events</strong>: ad impressions, clicks, ad format, placement, and estimated ad revenue.</li>
+  <li><strong>IP address</strong>: processed by third parties to approximate coarse location (typically country level) and to serve relevant ads.</li>
+</ul>
 
-      <!-- 1. Introduction -->
-      <section id="introduction" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">1.</span> Introduction
-        </h2>
-        <p>Welcome to <strong>Movie to Watch</strong> ("we", "our", or "the app"), a movie and TV series discovery,
-          tracking, and review application. We respect the privacy of our users and are committed to protecting it
-          through our compliance with this policy.</p>
-        <p>This privacy policy governs your access to and use of Movie to Watch and explains what types of information
-          the app interacts with, how this data is utilized, and the protocols we follow to protect it. By installing
-          and using Movie to Watch, you agree to the practices outlined in this document.</p>
+<h3>2.3 Data We Do NOT Collect</h3>
+<ul>
+  <li>No account registration or login</li>
+  <li>No email addresses or names</li>
+  <li>No precise/GPS location</li>
+  <li>No contacts, calendar, photos, camera or microphone access</li>
+  <li>No payment information</li>
+</ul>
 
-        <div class="info-box">
-          <div class="info-box-title">What this app does</div>
-          <p>Movie to Watch is a discovery and tracking app. It provides information about movies and TV series
-            (descriptions, cast, ratings, release dates), plays official trailers hosted on YouTube, and lets you build
-            a private watchlist and write personal reviews. <strong>The app does not stream, host, or offer downloads of
-              any movies or TV shows.</strong></p>
-        </div>
+<h2>3. How We Use Information</h2>
+<ul>
+  <li>To operate and display movie content</li>
+  <li>To show and measure advertisements</li>
+  <li>To understand feature usage and improve the app</li>
+  <li>To remotely configure app behaviour and ad frequency</li>
+  <li>To detect and prevent invalid or fraudulent ad activity</li>
+</ul>
 
-        <p>This application was previously published under a different name. It is developed and maintained by
-          Contentyfi and is not affiliated with, endorsed by, or connected to any other application or service with a
-          similar name.</p>
-      </section>
+<h2>4. Third-Party Services</h2>
+<p>The following third parties may receive or process data when you use the app. Each acts under its own privacy policy.</p>
 
-      <!-- 2. What We Collect -->
-      <section id="information-collection" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">2.</span> Information We Collect
-        </h2>
-        <p>We believe in data minimization. Movie to Watch is engineered to function seamlessly without requiring you to
-          share personal information with us.</p>
+<div class="service">
+  <strong>Google AdMob (advertising)</strong>
+  <p>Serves banner, native, interstitial, rewarded and app-open ads. Uses your advertising ID and IP address for ad selection, frequency capping, and measurement.</p>
+  <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">https://policies.google.com/technologies/ads</a>
+</div>
 
-        <div class="info-box">
-          <div class="info-box-title">🔒 No Accounts Required</div>
-          <p>Movie to Watch does not require registration, user profiles, or accounts. We do not collect your name,
-            email address, phone number, contacts, calendar, or location data.</p>
-        </div>
+<div class="service">
+  <strong>Google Firebase Analytics</strong>
+  <p>Collects app usage and event data described in section 2.2.</p>
+  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">https://firebase.google.com/support/privacy</a>
+</div>
 
-        <p>The only categories of information processed by the app are:</p>
-        <ul>
-          <li><strong>User-Generated Content:</strong> Your movie watchlists, favorite selections, custom lists, and
-            personal reviews are created and stored <strong>locally on your device</strong>. We have no backend server
-            storing or listing these entries.</li>
-          <li><strong>Technical Data:</strong> Standard connection metrics (such as your IP address, device model,
-            operating system version, and system language) are processed temporarily by third-party APIs in order to
-            complete search requests and retrieve movie details.</li>
-          <li><strong>Advertising &amp; Analytics Identifiers:</strong> Our advertising and analytics providers process
-            your device's advertising identifier and app usage events, as described in Section 3 below. This processing
-            is subject to your consent where required by law.</li>
-        </ul>
-      </section>
+<div class="service">
+  <strong>Google Firebase Remote Config</strong>
+  <p>Delivers configuration values to the app. Sends app instance and device metadata to Google.</p>
+  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">https://firebase.google.com/support/privacy</a>
+</div>
 
-      <!-- 3. Third-Party Integrations -->
-      <section id="third-party-services" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">3.</span> Third-Party Integrations
-        </h2>
-        <p>To provide movie information, trailer playback, dynamic app configuration, and ad-supported services, Movie
-          to Watch integrates third-party Software Development Kits (SDKs) and APIs. These third parties handle data
-          according to their respective privacy policies:</p>
+<div class="service">
+  <strong>The Movie Database (TMDB)</strong>
+  <p>Supplies all movie information. Your device makes requests to TMDB, which may log request metadata including IP address.</p>
+  <a href="https://www.themoviedb.org/privacy-policy" target="_blank" rel="noopener">https://www.themoviedb.org/privacy-policy</a>
+</div>
 
-        <div class="services-grid">
-          <!-- TMDB -->
-          <div class="service-card">
-            <div class="service-header">
-              <span class="service-name">The Movie Database (TMDB)</span>
-              <span class="service-badge badge-content">Core API</span>
-            </div>
-            <p class="service-desc">Used to query metadata, posters, cast details, and ratings. Your device communicates
-              directly with TMDB. They may log network metadata (IP addresses and timestamps) as part of standard server
-              logs.</p>
-            <a href="https://www.themoviedb.org/privacy-policy" target="_blank" rel="noopener noreferrer"
-              class="service-link">View TMDB Privacy Policy &rarr;</a>
-          </div>
+<div class="service">
+  <strong>YouTube / Google (trailer playback)</strong>
+  <p>Trailers play via the YouTube Player. Google may collect viewing and device data.</p>
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a>
+</div>
 
-          <!-- Google AdMob -->
-          <div class="service-card">
-            <div class="service-header">
-              <span class="service-name">Google AdMob</span>
-              <span class="service-badge badge-ads">Advertising</span>
-            </div>
-            <p class="service-desc">Used to display banner, native, interstitial, and rewarded ads. AdMob collects the
-              Android Advertising ID (AAID), IP address, and similar tracking indicators to deliver and measure
-              advertising.</p>
-            <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer"
-              class="service-link">View Google Ad Policies &rarr;</a>
-          </div>
+<h2>5. Advertising and Your Choices</h2>
+<p>The app displays ads supplied by Google AdMob.</p>
 
-          <!-- Firebase Analytics -->
-          <div class="service-card">
-            <div class="service-header">
-              <span class="service-name">Firebase Analytics &amp; Remote Config</span>
-              <span class="service-badge badge-analytics">Analytics</span>
-            </div>
-            <p class="service-desc">Used to measure ad performance, screen views, and feature usage, and to deliver
-              remote configuration values. It collects pseudonymous app-instance identifiers and session details, and
-              does not store your name or contact details.</p>
-            <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer"
-              class="service-link">View Firebase Privacy Terms &rarr;</a>
-          </div>
+<h3>Consent (EEA, UK and Switzerland)</h3>
+<p>Where required, we present a Google-certified consent message (UMP) before serving personalised ads. You may accept or decline personalised advertising. Where a consent form applies, you can change your choice at any time via <strong>Settings &rarr; Legal &rarr; Ad Privacy Options</strong>.</p>
 
-          <!-- YouTube SDK -->
-          <div class="service-card">
-            <div class="service-header">
-              <span class="service-name">YouTube Player SDK</span>
-              <span class="service-badge badge-content">Media</span>
-            </div>
-            <p class="service-desc">Used to play official movie and TV trailers hosted on YouTube inside the
-              application. When you play a trailer, YouTube (owned by Google) may collect playback metrics and device
-              information.</p>
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
-              class="service-link">View Google Privacy Policy &rarr;</a>
-          </div>
-        </div>
-      </section>
+<h3>Opting out of personalised ads</h3>
+<p>On Android you can reset or delete your Advertising ID at any time: <em>Settings &rarr; Privacy &rarr; Ads</em>. Ads will still appear, but will be less relevant to you.</p>
 
-      <!-- 4. Local Storage -->
-      <section id="local-storage" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">4.</span> Local Storage
-        </h2>
-        <p>Movie to Watch stores your app settings, watchlist, favorites, custom lists, and reviews inside local
-          database storage on your device (using Hive and Shared Preferences).</p>
-        <p>This data is never sent to our servers. Because your data lives strictly on your device:</p>
-        <ul>
-          <li>We cannot read, restore, or export your watchlist, favorites, or reviews if you lose your phone.</li>
-          <li>If you clear the app's cache or storage, or uninstall Movie to Watch from your device, all saved movies
-            and custom data will be <strong>permanently deleted</strong>.</li>
-        </ul>
-      </section>
+<h3>Rewarded ads</h3>
+<p>Watching a rewarded ad is always optional and user-initiated. Rewards (such as a temporary ad-free period) are stored only on your device.</p>
 
-      <!-- 5. Notifications -->
-      <section id="notifications" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">5.</span> Notifications
-        </h2>
-        <p>Movie to Watch can send you local reminders when a movie or series you have chosen is released. These
-          reminders are scheduled and delivered entirely on your device — no notification data is sent to us or to any
-          third party.</p>
-        <p>Notification permission is optional. You can grant or revoke it at any time from your device's app settings,
-          and the rest of the app will continue to work normally.</p>
-      </section>
+<h2>6. Legal Bases (EEA/UK Users)</h2>
+<p>Where the GDPR applies, we rely on:</p>
+<ul>
+  <li><strong>Consent</strong> &mdash; for personalised advertising and analytics, obtained via the consent message.</li>
+  <li><strong>Legitimate interests</strong> &mdash; for app security, fraud prevention, and basic operation.</li>
+</ul>
+<p>You may withdraw consent at any time via <strong>Settings &rarr; Legal &rarr; Ad Privacy Options</strong>.</p>
 
-      <!-- 6. Data Sharing -->
-      <section id="data-sharing" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">6.</span> Data Sharing
-        </h2>
-        <p>We do not sell, trade, rent, or lease your personal information, and we do not operate a server that stores
-          it. Data processed by third-party providers (such as Google AdMob and Firebase) is handled directly by those
-          services for advertising and analytics purposes, in accordance with their privacy policies and with the
-          consent you grant where required.</p>
-      </section>
+<h2>7. Data Retention</h2>
+<p>Local data (watchlist, favorites, lists, reviews, settings) persists until you delete it in the app or uninstall the app. Data held by Google is retained according to Google&rsquo;s own retention policies, which are described in the links in section 4.</p>
 
-      <!-- 7. GDPR and CCPA Compliance -->
-      <section id="gdpr-ccpa" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">7.</span> Your Privacy Rights (GDPR &amp; CCPA)
-        </h2>
-        <p>Depending on your geographic location, you may have rights under regional legislation (such as the General
-          Data Protection Regulation / GDPR in the European Union/UK, or the California Consumer Privacy Act / CCPA in
-          the United States).</p>
+<h2>8. Children&rsquo;s Privacy</h2>
+<p>The app enforces <code>include_adult: false</code> on all content queries. The app is not directed at children under 13 and we do not knowingly collect personal information from them. If you believe a child has provided data, contact us and we will address it.</p>
 
-        <p>Because Movie to Watch does not map local data to personal identifiers, we cannot access, modify, or delete
-          your watchlist or reviews. You hold absolute control over your local data. You may exercise your rights as
-          follows:</p>
-        <ul>
-          <li><strong>Consent Management:</strong> Users in the EEA and UK are presented with a consent form via
-            Google's UMP (User Messaging Platform) SDK. You can update or withdraw your advertising consent preferences
-            at any time through the <strong>Settings</strong> screen in the app.</li>
-          <li><strong>Data Deletion &amp; Access:</strong> You can completely erase all data stored by Movie to Watch by
-            uninstalling the app or clearing its data in your device's app settings menu.</li>
-          <li><strong>Tracking Opt-Out:</strong> You can configure your device settings to restrict personalized ads
-            (for example, "Opt out of Ads Personalization" on Android).</li>
-          <li><strong>Requests and Questions:</strong> For any privacy request or question, contact us at the email
-            address in Section 11. We will respond within the timeframe required by applicable law.</li>
-        </ul>
-      </section>
+<h2>9. Your Rights</h2>
+<p>Depending on your jurisdiction, you may have the right to access, correct, delete, or restrict processing of your personal data, and to object to processing or request portability. Local app data can be cleared at any time from within the app or via your device settings. For requests concerning data held by Google, use the controls linked in section 4 or contact us.</p>
 
-      <!-- 8. Children's Privacy -->
-      <section id="children-privacy" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">8.</span> Children's Privacy
-        </h2>
-        <p>Movie to Watch is designed for a general audience. We do not knowingly collect personal information from
-          children under the age of 13 (or under 16 in the European Union).</p>
-        <p>To support safe discovery, the application sets <code>include_adult: false</code> on all TMDB content
-          queries, filtering adult-rated titles out of every browse and search result. If you are a parent or guardian
-          and believe that your child has provided personal information to a third-party service integrated into our
-          app, please contact the respective third-party provider or contact us at the address below.</p>
-      </section>
+<h2>10. Data Security</h2>
+<ul>
+  <li>All network communication uses HTTPS/TLS</li>
+  <li>Release builds are obfuscated</li>
+  <li>API keys are supplied via environment configuration, not hard-coded in source</li>
+</ul>
+<p>No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
 
-      <!-- 9. Data Security -->
-      <section id="security" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">9.</span> Data Security
-        </h2>
-        <p>We deploy standard security protocols to safeguard data transmissions and app integrity:</p>
-        <ul>
-          <li><strong>HTTPS Enforced:</strong> All network requests made to third-party endpoints (TMDB, YouTube,
-            Firebase) are encrypted using TLS/HTTPS.</li>
-          <li><strong>Code Obfuscation:</strong> Release builds of Movie to Watch are obfuscated with split debug
-            information to protect against reverse engineering.</li>
-          <li><strong>Safe Configuration:</strong> API configuration keys are loaded at runtime rather than being stored
-            statically in source code.</li>
-        </ul>
-        <p>No method of transmission or electronic storage is completely secure. While we use commercially acceptable
-          means to protect your information, we cannot guarantee absolute security.</p>
-      </section>
+<h2>11. Changes to This Policy</h2>
+<p>We may update this policy from time to time. The &quot;Last updated&quot; date above reflects the latest revision. Material changes will be communicated in the app. Continued use after changes constitutes acceptance.</p>
 
-      <!-- 10. Changes to This Policy -->
-      <section id="changes" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">10.</span> Changes to This Policy
-        </h2>
-        <p>We reserve the right to modify this privacy policy at any time. If we make material changes to this policy,
-          we will post the updated version on this page and update the "Last Updated" date above. We encourage you to
-          periodically review this page to remain informed of our data practices.</p>
-      </section>
+<h2>12. Contact</h2>
+<div class="contact">
+  <p style="margin:0">For privacy questions or requests, contact:<br>
+  <a href="mailto:contentyfi@gmail.com">contentyfi@gmail.com</a></p>
+</div>
 
-      <!-- 11. Contact Us -->
-      <section id="contact" class="policy-card">
-        <h2 class="section-title">
-          <span class="section-number">11.</span> Contact Us
-        </h2>
-        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our integrations, please
-          feel free to reach out to us:</p>
+<footer>
+  &copy; 2026 Fmovies. All rights reserved.
+</footer>
 
-        <div class="contact-container">
-          <div class="contact-card">
-            <div class="contact-icon-wrapper">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </div>
-            <div class="contact-details">
-              <span class="contact-label">Email Support</span>
-              <a href="mailto:contentyfi@gmail.com" class="contact-value">contentyfi@gmail.com</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Footer -->
-      <footer>
-        <p>&copy; 2026 Contentyfi. All rights reserved.</p>
-        <p>This product uses the TMDB API but is not endorsed or certified by <a href="https://www.themoviedb.org"
-            target="_blank" rel="noopener noreferrer">TMDB</a>.</p>
-      </footer>
-
-    </main>
-
-  </div>
-
+</main>
 </body>
-
 </html>
